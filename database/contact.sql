@@ -1,0 +1,8 @@
+-- DROP TABLE users;
+CREATE TABLE contact(
+    id SERIAL PRIMARY KEY,
+    email VARCHAR(50) UNIQUE NOT NULL,
+    name VARCHAR(50) UNIQUE NOT NULL,
+    reason text NOT NULL,
+    sent_date TIMESTAMPTZ NOT NULL
+)
