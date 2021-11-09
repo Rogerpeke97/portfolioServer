@@ -23,18 +23,14 @@ export class Form {
       this.pool.query('INSERT INTO contact (email, name, reason, sent_date) VALUES ($1, $2, $3, $4)', 
       [formBody.email, formBody.name, formBody.reason, new Date().toISOString()], (err, res) => {
         if (err) {
-          throw err;
+          response.status(400).json({success: false, message: 'Something went wrong!'});
         }
-        else {
-          response.send('Message sent successfully');
-        }
-        console.log(res)
+        response.json({success: true, message: 'Message sent successfully'});
         this.pool.end();
       });
     }
     else {
-      console.log("HELLO")
-      response.send('Message already sent');
+      response.json({success: false, message: 'You already sent a message, please wait until I check it out!'});
     }
   }
   private async validate(formBody: FormBody) {
