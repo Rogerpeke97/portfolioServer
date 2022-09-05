@@ -7,7 +7,7 @@ import {Form} from "./forms/form";
 dotenv.config();
 
 const app: express.Application = express();
-const port = 8080;
+const port = process.env.PORT;
 const httpServer = http.createServer(app);
 
 app.use(bodyParser.json());
