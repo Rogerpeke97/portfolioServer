@@ -15,7 +15,7 @@ export class Form {
       host: process.env.DB_HOST,
       database: process.env.DB_DATABASE,
       password: process.env.DATABASE_PASSWORD,
-      port: 5432,
+      port: 7768,
     });
   }
   async submit(formBody: FormBody, response: express.Response) {
