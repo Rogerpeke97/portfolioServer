@@ -27,6 +27,10 @@ app.post('/contact_form', (req: express.Request, res: express.Response)=>{
     form.submit(req.body, res);
 });
 
+app.get('/', (req: express.Request, res: express.Response)=>{
+  res.send('Hello World!');
+})
+
 httpServer.listen(port, () => {
     console.log(`Server running at http://localhost:${port}`);
 });
